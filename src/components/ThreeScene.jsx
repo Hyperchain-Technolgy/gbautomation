@@ -13,8 +13,8 @@ const ThreeScene = () => {
     scene.background = new THREE.Color(0x0f172a); // Set background color to #0f172a
 
     const camera = new THREE.PerspectiveCamera(75, currentMount.clientWidth / currentMount.clientHeight, 0.1, 1000);
-    camera.position.set(0, 1, 5); // Adjust camera position
-    camera.position.set(0, 0, 3); // Adjust camera position
+    // camera.position.set(0, 1, 5); // Adjust camera position
+    camera.position.set(0, 0, 15); // Adjust camera position
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
@@ -22,12 +22,12 @@ const ThreeScene = () => {
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     const light = new THREE.DirectionalLight(0xffffff, 1);
-    light.position.set(5, 5, 5).normalize();
+    light.position.set(0, 0, 1).normalize();
     scene.add(light);
     // GLTFLoader to load a custom 3D model
     const loader = new GLTFLoader();
     loader.load(
-      '/models/male/scene.gltf', // Path to your custom GLTF file
+      '/models/machine/untitled.gltf', // Path to your custom GLTF file
       (gltf) => {
         gltf.scene.position.set(0, -1, 0); // Adjust position to center the model
         scene.add(gltf.scene);
